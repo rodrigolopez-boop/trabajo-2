@@ -1,51 +1,17 @@
 const data = [
   {
-    place: "Switzerland Alps",
-    title: "SAINT",
-    title2: "ANTONIEN",
-    description:
-      "Tucked away in the Switzerland Alps, Saint Antönien offers an idyllic retreat for those seeking tranquility and adventure alike. It's a hidden gem for backcountry skiing in winter and boasts lush trails for hiking and mountain biking during the warmer months.",
-    image: "https://assets.codepen.io/3685267/timed-cards-1.jpg"
+    place: "Diseño Profesional",
+    title: "RODRIGO",
+    title2: "LOPEZ",
+    description: "Diseñador gráfico y digital con 5 años de experiencia. Creo soluciones visuales innovadoras que transforman marcas en realidades impactantes.",
+    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&h=800&fit=crop"
   },
   {
-    place: "Japan Alps",
-    title: "NANGANO",
-    title2: "PREFECTURE",
-    description:
-      "Nagano Prefecture, set within the majestic Japan Alps, is a cultural treasure trove with its historic shrines and temples, particularly the famous Zenkō-ji. The region is also a hotspot for skiing and snowboarding, offering some of the country's best powder.",
-    image: "https://assets.codepen.io/3685267/timed-cards-2.jpg"
-  },
-  {
-    place: "Sahara Desert - Morocco",
-    title: "MARRAKECH",
-    title2: "MEROUGA",
-    description:
-      "The journey from the vibrant souks and palaces of Marrakech to the tranquil, starlit sands of Merzouga showcases the diverse splendor of Morocco. Camel treks and desert camps offer an unforgettable immersion into the nomadic way of life.",
-    image: "https://assets.codepen.io/3685267/timed-cards-3.jpg"
-  },
-  {
-    place: "Sierra Nevada - USA",
-    title: "YOSEMITE",
-    title2: "NATIONAL PARAK",
-    description:
-      "Yosemite National Park is a showcase of the American wilderness, revered for its towering granite monoliths, ancient giant sequoias, and thundering waterfalls. The park offers year-round recreational activities, from rock climbing to serene valley walks.",
-    image: "https://assets.codepen.io/3685267/timed-cards-4.jpg"
-  },
-  {
-    place: "Tarifa - Spain",
-    title: "LOS LANCES",
-    title2: "BEACH",
-    description:
-      "Los Lances Beach in Tarifa is a coastal paradise known for its consistent winds, making it a world-renowned spot for kitesurfing and windsurfing. The beach's long, sandy shores provide ample space for relaxation and sunbathing, with a vibrant atmosphere of beach bars and cafes.",
-    image: "https://assets.codepen.io/3685267/timed-cards-5.jpg"
-  },
-  {
-    place: "Cappadocia - Turkey",
-    title: "Göreme",
-    title2: "Valley",
-    description:
-      "Göreme Valley in Cappadocia is a historical marvel set against a unique geological backdrop, where centuries of wind and water have sculpted the landscape into whimsical formations. The valley is also famous for its open-air museums, underground cities, and the enchanting experience of hot air ballooning.",
-    image: "https://assets.codepen.io/3685267/timed-cards-6.jpg"
+    place: "Diseño Innovador",
+    title: "SOLUCIONES",
+    title2: "VISUALES",
+    description: "Especializado en identidad visual, diseño web, UX/UI y branding. Transformo ideas en diseños que cautivan y generan resultados medibles.",
+    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&h=800&fit=crop"
   }
 ];
 
@@ -53,7 +19,7 @@ const _ = (id) => document.getElementById(id);
 const cards = data
   .map(
     (i, index) =>
-      `<div class="card" id="card${index}" style="background-image:url(${i.image})"  ></div>`
+      `<div class="card" id="card${index}" style="background-image:url(${i.image})" ></div>`
   )
   .join("");
 
@@ -64,7 +30,6 @@ const cardContents = data
 <div class="content-place">${i.place}</div>
 <div class="content-title-1">${i.title}</div>
 <div class="content-title-2">${i.title2}</div>
-
 </div>`
   )
   .join("");
@@ -75,6 +40,7 @@ const sildeNumbers = data
       `<div class="item" id="slide-item-${index}" >${index + 1}</div>`
   )
   .join("");
+
 _("demo").innerHTML = cards + cardContents;
 _("slide-numbers").innerHTML = sildeNumbers;
 
@@ -87,9 +53,11 @@ const set = gsap.set;
 function getCard(index) {
   return `#card${index}`;
 }
+
 function getCardContent(index) {
   return `#card-content-${index}`;
 }
+
 function getSliderItem(index) {
   return `#slide-item-${index}`;
 }
@@ -104,7 +72,7 @@ function animate(target, duration, properties) {
   });
 }
 
-let order = [0, 1, 2, 3, 4, 5];
+let order = [0, 1];
 let detailsEven = true;
 
 let offsetTop = 200;
@@ -130,7 +98,8 @@ function init() {
     opacity: 0,
     zIndex: 60
   });
-  gsap.set("nav", { y: -200, opacity: 0 });
+  
+  gsap.set(".hero-nav", { y: -200, opacity: 0 });
 
   gsap.set(getCard(active), {
     x: 0,
@@ -138,6 +107,7 @@ function init() {
     width: window.innerWidth,
     height: window.innerHeight
   });
+
   gsap.set(getCardContent(active), { x: 0, y: 0, opacity: 0 });
   gsap.set(detailsActive, { opacity: 0, zIndex: 22, x: -200 });
   gsap.set(detailsInactive, { opacity: 0, zIndex: 12 });
@@ -182,6 +152,7 @@ function init() {
       }, 500);
     }
   });
+
   rest.forEach((i, index) => {
     gsap.to(getCard(i), {
       x: offsetLeft + index * (cardWidth + gap),
@@ -198,8 +169,9 @@ function init() {
       delay: startDelay
     });
   });
+
   gsap.to("#pagination", { y: 0, opacity: 1, ease, delay: startDelay });
-  gsap.to("nav", { y: 0, opacity: 1, ease, delay: startDelay });
+  gsap.to(".hero-nav", { y: 0, opacity: 1, ease, delay: startDelay });
   gsap.to(detailsActive, { opacity: 1, x: 0, ease, delay: startDelay });
 }
 
@@ -375,4 +347,49 @@ async function start() {
   }
 }
 
-start();
+// Arrow click handlers
+document.addEventListener('DOMContentLoaded', () => {
+  const arrowLeft = document.querySelector('.arrow-left');
+  const arrowRight = document.querySelector('.arrow-right');
+  
+  if (arrowLeft) {
+    arrowLeft.addEventListener('click', () => {
+      clicks += 1;
+    });
+  }
+  
+  if (arrowRight) {
+    arrowRight.addEventListener('click', () => {
+      clicks += 1;
+    });
+  }
+
+  // Navigation links in hero
+  const navLinks = document.querySelectorAll('.hero-nav > div:last-child > div');
+  navLinks.forEach((link, index) => {
+    link.addEventListener('click', function() {
+      // Remove active class from all
+      navLinks.forEach(l => l.classList.remove('active'));
+      // Add active class to clicked
+      this.classList.add('active');
+      
+      // Scroll to section
+      const sectionMap = {
+        0: '#inicio',
+        1: '#sobre-mi',
+        2: '#proyectos',
+        3: '#contacto'
+      };
+      
+      const targetId = sectionMap[index];
+      if (targetId && targetId !== '#inicio') {
+        const target = document.querySelector(targetId);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    });
+  });
+
+  start();
+});
