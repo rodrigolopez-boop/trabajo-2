@@ -3,294 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rodrigo Lopez - Diseñador Profesional</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js'></script>
+    <title>Invitación de Blanca Nieves</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- HEADER -->
-    <header class="header">
-        <div class="container">
-            <div class="logo">RL</div>
-            <nav class="nav">
-                <a href="#inicio">Inicio</a>
-                <a href="#sobre-mi">Sobre Mí</a>
-                <a href="#habilidades">Habilidades</a>
-                <a href="#proyectos">Proyectos</a>
-                <a href="#contacto">Contacto</a>
-            </nav>
-            <button class="cta-btn">Descargar CV</button>
-        </div>
-    </header>
+    <audio id="bgMusic" loop autoplay muted>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+    
+    <div class="music-controls">
+        <button id="playBtn" onclick="toggleMusic()">🎵 Música ON</button>
+    </div>
 
-    <!-- HERO SECTION -->
-    <section class="hero" id="inicio">
-        <div class="indicator"></div>
+    <div class="sparkles"></div>
+
+    <div class="book-container" id="book">
         
-        <nav class="hero-nav">
-            <div>
-                <div class="svg-container">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
-                    </svg>
-                </div>
-                <div>RODRIGO LOPEZ</div>
+        <div class="page" id="cover" onclick="flipPage('cover')">
+            <div class="front">
+                <div class="crown">🍎</div>
+                <h1 style="font-size: 45px;">Blanca<br>Nieves</h1>
+                <p style="color: #fff; font-size: 14px; margin-top: 40px; letter-spacing: 2px;">TOCA PARA ABRIR</p>
             </div>
-            <div>
-                <div class="active">Portfolio</div>
-                <div>Servicios</div>
-                <div>Proyectos</div>
-                <div>Contacto</div>
-            </div>
-        </nav>
-
-        <div id="demo"></div>
-
-        <div class="details" id="details-even">
-            <div class="place-box">
-                <div class="text">Diseño Profesional</div>
-            </div>
-            <div class="title-box-1">
-                <div class="title-1">RODRIGO</div>
-            </div>
-            <div class="title-box-2">
-                <div class="title-2">LOPEZ</div>
-            </div>
-            <div class="desc">
-                Diseñador gráfico y digital con 5 años de experiencia. Creo soluciones visuales innovadoras que transforman marcas en realidades impactantes.
-            </div>
-            <div class="cta">
-                <button class="bookmark" title="Guardar portafolio">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                        <path fill-rule="evenodd" d="M6.32 2.577a49.255 49.255 0 0111.36 0c1.497.174 2.57 1.46 2.57 2.93V21a.75.75 0 01-1.085.67L12 18.089l-7.165 3.583A.75.75 0 013.75 21V5.507c0-1.47 1.073-2.756 2.57-2.93z" clip-rule="evenodd" />
-                    </svg>
-                </button>
-                <button class="discover" onclick="document.getElementById('sobre-mi').scrollIntoView({behavior: 'smooth'})">Ver Portafolio</button>
+            <div class="back page-vintage">
+                <div class="crown" style="font-size: 30px;">💎</div>
+                <p>En un lejano castillo encantado, vivía la más hermosa princesa: Blanca Nieves. Hoy celebramos el primer añito de...</p>
             </div>
         </div>
 
-        <div class="details" id="details-odd">
-            <div class="place-box">
-                <div class="text">Diseño Innovador</div>
+        <div class="page" id="page1" onclick="flipPage('page1')">
+            <div class="front page-vintage">
+                <p style="font-size: 16px;">...nuestra hermosa:</p>
+                <h2>Ana Paula</h2>
+                <p>Como la princesa Blanca Nieves, ella es</p>
+                <b style="font-size: 20px; color: #8b6508;">Hermosa, Pura y Llena de Amor</b>
+                <p style="font-size: 14px; margin-top: 20px;">Toca para ver los detalles de la celebración</p>
             </div>
-            <div class="title-box-1">
-                <div class="title-1">SOLUCIONES</div>
-            </div>
-            <div class="title-box-2">
-                <div class="title-2">VISUALES</div>
-            </div>
-            <div class="desc">
-                Especializado en identidad visual, diseño web, UX/UI y branding. Transformo ideas en diseños que cautivan y generan resultados medibles.
-            </div>
-            <div class="cta">
-                <button class="bookmark" title="Guardar portafolio">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                        <path fill-rule="evenodd" d="M6.32 2.577a49.255 49.255 0 0111.36 0c1.497.174 2.57 1.46 2.57 2.93V21a.75.75 0 01-1.085.67L12 18.089l-7.165 3.583A.75.75 0 013.75 21V5.507c0-1.47 1.073-2.756 2.57-2.93z" clip-rule="evenodd" />
-                    </svg>
-                </button>
-                <button class="discover" onclick="document.getElementById('contacto').scrollIntoView({behavior: 'smooth'})">Contactarme</button>
+            <div class="back page-vintage">
+                <h1 style="font-size: 28px; color: #a83232;">🏰 Convocatoria Real 🏰</h1>
+                <p>Los siete enanitos y toda la corte están invitados a celebrar el primer año de nuestra princesa Blanca Nieves.</p>
+                <div class="crown" style="font-size: 25px;">👑</div>
             </div>
         </div>
 
-        <div class="pagination" id="pagination">
-            <div class="arrow arrow-left">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                </svg>
-            </div>
-            <div class="arrow arrow-right">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                </svg>
-            </div>
-            <div class="progress-sub-container">
-                <div class="progress-sub-background">
-                    <div class="progress-sub-foreground"></div>
+        <div class="page" id="page2">
+            <div class="front page-vintage">
+                <h3 style="font-size: 24px; color: #a83232;">⏰ Cuándo y Dónde ⏰</h3>
+                <div class="date-box">
+                    <p>Domingo, 12 de Abril</p>
+                    <p style="font-size: 16px; margin: 0;">A las 3:00 PM</p>
                 </div>
-            </div>
-            <div class="slide-numbers" id="slide-numbers"></div>
-        </div>
-
-        <div class="cover"></div>
-    </section>
-
-    <!-- SOBRE MÍ -->
-    <section class="about" id="sobre-mi">
-        <div class="container">
-            <h2>Sobre Mí</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Soy diseñador gráfico y digital con 5 años de experiencia creando identidades visuales poderosas y diseños que conectan emociones.</p>
-                    <p>Mi enfoque combina arte, estrategia y funcionalidad para crear soluciones de diseño que no solo se ven bien, sino que generan resultados.</p>
-                    <p>He colaborado con más de 50 clientes en diversos sectores, desde startups innovadoras hasta marcas consolidadas, dejando mi huella en cada proyecto.</p>
-                </div>
-                <div class="stats">
-                    <div class="stat-card">
-                        <h3>50+</h3>
-                        <p>Proyectos completados</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3>40+</h3>
-                        <p>Clientes satisfechos</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3>100%</h3>
-                        <p>Calidad garantizada</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3>5 años</h3>
-                        <p>Experiencia</p>
-                    </div>
-                </div>
+                <p style="font-size: 15px;"><b>🏰 Castillo Encantado:</b><br>Av. de los Cuentos de Hadas #123</p>
+                <p class="footer-note" style="font-style: italic;">Con amor y magia para celebrar a nuestra Blanca Nieves 💕</p>
+                <button onclick="resetBook(event)" style="margin-top: 15px; padding: 8px 15px; background: #a83232; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">Cerrar Libro 📖</button>
             </div>
         </div>
-    </section>
 
-    <!-- HABILIDADES -->
-    <section class="skills" id="habilidades">
-        <div class="container">
-            <h2>Mis Habilidades</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="icon">🎨</div>
-                    <h3>Diseño Gráfico</h3>
-                    <p>Logos, identidades visuales y materiales de branding de alto impacto</p>
-                </div>
-                <div class="skill-card">
-                    <div class="icon">🌐</div>
-                    <h3>Diseño Web</h3>
-                    <p>Websites modernos, responsivos y con experiencia de usuario excepcional</p>
-                </div>
-                <div class="skill-card">
-                    <div class="icon">📱</div>
-                    <h3>Diseño Mobile</h3>
-                    <p>Aplicaciones móviles y interfaces intuitivas para cualquier plataforma</p>
-                </div>
-                <div class="skill-card">
-                    <div class="icon">🎬</div>
-                    <h3>Motion Graphics</h3>
-                    <p>Animaciones, videos promocionales y contenido visual dinámico</p>
-                </div>
-                <div class="skill-card">
-                    <div class="icon">🎯</div>
-                    <h3>UX/UI Design</h3>
-                    <p>Diseño centrado en el usuario con interfaces funcionales y atractivas</p>
-                </div>
-                <div class="skill-card">
-                    <div class="icon">✨</div>
-                    <h3>Ilustración</h3>
-                    <p>Ilustraciones personalizadas y custom art para proyectos únicos</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
 
-    <!-- PROYECTOS DESTACADOS -->
-    <section class="projects" id="proyectos">
-        <div class="container">
-            <h2>Proyectos Destacados</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">Proyecto 1</div>
-                    <h3>Identidad Visual TechStart</h3>
-                    <p>Rediseño completo de identidad visual para startup tecnológica. Incluye logo, paleta de colores, tipografía y sistema de diseño</p>
-                    <div class="project-stats">
-                        <span>✓ Logo + Guía de marca</span>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">Proyecto 2</div>
-                    <h3>Rediseño Website E-commerce</h3>
-                    <p>Modernización completa del sitio web con enfoque en experiencia de usuario. Incrementó conversiones y reducción de bounce rate</p>
-                    <div class="project-stats">
-                        <span>✓ +45% conversiones</span>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">Proyecto 3</div>
-                    <h3>Identidad Visual Agencia Creativa</h3>
-                    <p>Desarrollo de kit de contenido visual para redes sociales, templates y sistema de publicaciones con tono consistente</p>
-                    <div class="project-stats">
-                        <span>✓ +2.5K engagement</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TESTIMONIOS DE CLIENTES -->
-    <section class="testimonials">
-        <div class="container">
-            <h2>Lo Que Dicen Mis Clientes</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <p>"Rodrigo entiende perfectamente qué hace grande a una marca. Sus diseños no solo se ven increíbles, son estratégicos y funcionales."</p>
-                    <strong>Juan López</strong>
-                    <span>CEO, TechStore</span>
-                </div>
-                <div class="testimonial-card">
-                    <p>"El rediseño de nuestra plataforma fue transformador. Nuestros usuarios reportaron mejor experiencia y el engagement subió notablemente."</p>
-                    <strong>María González</strong>
-                    <span>Product Manager, BrandCo</span>
-                </div>
-                <div class="testimonial-card">
-                    <p>"Profesional, creativo, responsable. Entregó un proyecto excepcional en tiempo y presupuesto. Definitivamente lo contrataré nuevamente."</p>
-                    <strong>David Rodríguez</strong>
-                    <span>Founder, StartupXYZ</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA FINAL -->
-    <section class="cta-section">
-        <div class="container">
-            <h2>¿Listo para Transformar Tu Marca?</h2>
-            <p>Contáctame para una consulta de diseño gratuita y descubre cómo puedo hacer realidad tu visión</p>
-            <button class="btn btn-primary">Agendar Consulta</button>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer" id="contacto">
-        <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <h4>Rodrigo Lopez</h4>
-                    <p>Diseñador Profesional</p>
-                    <p style="font-size: 0.9em; margin-top: 10px; color: #666;">5 años de experiencia en diseño digital y gráfico</p>
-                </div>
-                <div>
-                    <h4>Navegación</h4>
-                    <ul>
-                        <li><a href="#sobre-mi">Sobre Mí</a></li>
-                        <li><a href="#habilidades">Habilidades</a></li>
-                        <li><a href="#proyectos">Proyectos</a></li>
-                        <li><a href="#inicio">Volver al Inicio</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Contacto Directo</h4>
-                    <p style="margin-bottom: 8px;">
-                        <strong>Email:</strong><br>
-                        <a href="mailto:ro.de.lo.1995lopez@gmail.com" style="color: #0f3460; text-decoration: none;">ro.de.lo.1995lopez@gmail.com</a>
-                    </p>
-                    <p>
-                        <strong>Teléfono:</strong><br>
-                        <a href="tel:+34643861147" style="color: #0f3460; text-decoration: none;">+34 643 86147</a>
-                    </p>
-                    <div class="social-links">
-                        <a href="#" title="LinkedIn">📘 LinkedIn</a>
-                        <a href="#" title="Instagram">📷 Instagram</a>
-                        <a href="#" title="Portfolio">🌐 Portfolio</a>
-                    </div>
-                </div>
-            </div>
-            <hr style="margin: 30px 0; border: none; border-top: 1px solid #eee;">
-            <p class="footer-bottom">&copy; 2024 Rodrigo Lopez. Todos los derechos reservados. | Diseño y desarrollo propio</p>
-        </div>
-    </footer>
-
-    <script src="./js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
